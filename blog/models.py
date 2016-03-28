@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.utils.encoding import smart_unicode
+from django.utils.encoding import smart_text
 # Create your models here.
 from django.utils import timezone
 
@@ -22,7 +22,7 @@ class Post(models.Model):
         return self.title
 
     def __unicode__(self):
-        return smart_unicode(self.title)
+        return smart_text(self.title)
 
 
 class Comment(models.Model):
@@ -40,4 +40,4 @@ class Comment(models.Model):
         return self.text
 
     def __unicode__(self):
-        return smart_unicode(self.text)
+        return smart_text(self.text)
