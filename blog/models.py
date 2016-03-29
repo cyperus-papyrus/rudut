@@ -3,12 +3,14 @@ from django.db import models
 from django.utils.encoding import smart_text
 # Create your models here.
 from django.utils import timezone
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
-    text = models.TextField()
+    text = RichTextUploadingField(blank=True, default='')
     created_date = models.DateTimeField(
             default=timezone.now)
     published_date = models.DateTimeField(

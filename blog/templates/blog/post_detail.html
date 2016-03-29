@@ -10,7 +10,7 @@
       {% if post.published_date %}
       <p class="blog-post-meta">{{ post.published_date }}</p>
       {% endif %}
-      <p>{{ post.text|linebreaks }}</p>
+      {{ post.text|safe }}
     </div><!-- /.blog-post -->
   </div>
 </div>
