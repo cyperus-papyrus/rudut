@@ -3,7 +3,6 @@ from django.db import models
 from django.utils.encoding import smart_text
 # Create your models here.
 from django.utils import timezone
-from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
 
@@ -15,6 +14,7 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
+    image = models.ImageField(upload_to="blog/girls/")
 
     def publish(self):
         self.published_date = timezone.now()
