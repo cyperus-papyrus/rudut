@@ -1,3 +1,4 @@
+tagging
 Django==1.9.4
 django-bootstrap3==7.0.1
 django-ckeditor==5.0.3

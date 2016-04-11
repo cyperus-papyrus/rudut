@@ -4,6 +4,13 @@ from django.utils.encoding import smart_text
 # Create your models here.
 from django.utils import timezone
 from ckeditor_uploader.fields import RichTextUploadingField
+from taggit.managers import TaggableManager
+import logging
+logger = logging.getLogger(__name__)
+
+logger.debug("some message")
+logger.warning("oops, it is a warning")
+logger.error("bad, very bad")
 
 
 class Post(models.Model):
@@ -14,7 +21,8 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
-    image = models.ImageField(upload_to="blog/girls/")
+    image = models.ImageField(upload_to="blog/media/", default='/static/image/140.jpg')
+    tags = TaggableManager()
 
     def publish(self):
         self.published_date = timezone.now()
@@ -26,20 +34,5 @@ class Post(models.Model):
     def __unicode__(self):
         return smart_text(self.title)
 
-
-class Comment(models.Model):
-    post = models.ForeignKey('blog.Post', related_name='comments')
-    author = models.CharField(max_length=200)
-    text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
-    approved_comment = models.BooleanField(default=False)
-
-    def approve(self):
-        self.approved_comment = True
-        self.save()
-
-    def __str__(self):
-        return self.text
-
-    def __unicode__(self):
-        return smart_text(self.text)
+    class Meta:
+        app_label = 'blog'
