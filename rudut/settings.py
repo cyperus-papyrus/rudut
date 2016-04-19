@@ -16,18 +16,29 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+try:
+    from production_settings import SECRET_KEY, database_name, database_user, \
+        database_password, DISQUS_API_KEY, DISQUS_WEBSITE_SHORTNAME, EMAIL_HOST, \
+        EMAIL_HOST_PASSWORD, EMAIL_HOST_USER
+except ImportError:
+    # SECURITY WARNING: keep the secret key used in production secret!
+    SECRET_KEY = 'acyt)crpsd#m!@*t8jcv5=#mchgydm3%um=7xp*5his@n$x*t8'
+    database_name = 'rudut'
+    database_user = 'admin'
+    database_password = 'qazwsx'
+    DISQUS_API_KEY = 'nonono'
+    DISQUS_WEBSITE_SHORTNAME = 'rudut'
+    EMAIL_HOST = 'smtp.yandex.ru'  # Например, smtp.gmail.com
+    EMAIL_HOST_USER = 'nonono@yandex.ru'
+    EMAIL_HOST_PASSWORD = 'nonono'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'acyt)crpsd#m!@*t8jcv5=#mchgydm3%um=7xp*5his@n$x*t8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['123.olgavr.ru',]
-
 
 # Application definition
 
@@ -81,20 +92,18 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rudut.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'marc',
-        'USER': 'marc',
-        'PASSWORD': '123',
+        'NAME': database_name,
+        'USER': database_user,
+        'PASSWORD': database_password,
         'HOST': '127.0.0.1'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -114,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -128,7 +136,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
@@ -138,11 +145,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
-DISQUS_API_KEY = 's8s5xX8CMY3krL1OpK8WmU0An4InDIYFZtP3Lak2iRgwK24tnwOVahwYlVuKRwCR'
-DISQUS_WEBSITE_SHORTNAME = 'rudut'
-
 SITE_ID = 2
-
 
 LOGGING = {
     'version': 1,
@@ -220,8 +223,4 @@ LOGGING = {
     }
 }
 
-
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.yandex.ru' #Например, smtp.gmail.com
-EMAIL_HOST_USER = 'nonono@yandex.ru' #Например, user@gmail.com. Именно его необходимо указывать как ВАШ_EMAIL_ДЛЯ_ОТПРАВКИ_СООБЩЕНИЯ в исходном коде предыдущего пункта
-EMAIL_HOST_PASSWORD = 'nonono'
