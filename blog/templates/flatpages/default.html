@@ -7,15 +7,10 @@
 <div class="row">
   <div class="col-sm-8 blog-main">
     <div class="blog-post">
+          <br /><br /><br />
       <h2 class="blog-post-title">{{ flatpage.title }}</h2>
 {{ flatpage.content|safe }}
     </div><!-- /.blog-post -->
-    <br />
-    <div>{% load disqus_tags %}
-         {% disqus_dev %}
-         {% disqus_show_comments %}
-    {% set_disqus_developer 1 %}
-    {% set_disqus_url object.get_absolute_url %}</div>
   </div>
 </div>
 </div>

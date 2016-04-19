@@ -43,12 +43,18 @@
 
         </div>
     {% endfor %}
-    <div>{% load taggit_templatetags2_tags %}
-    {% get_taglist as tags %}
-        <ul> Теги:
-    {% for tag in tags %}
-    <li style="font-size: {{tag.num_times|add:"+20"}}px;"> <a href="/posts/tag/{{tag}}">{{tag}} </a>({{tag.num_times}})</li>
-    {% endfor %}
-        </ul></div>
+    <div>Теги:
+        {% load taggit_templatetags2_tags %}
+{% if forvar %}
+{% get_tagcloud as tags for forvar %}
+{% else %}
+{% get_tagcloud as tags %}
+{% endif %}
+<div>
+{% for tag in tags %}
+<font size={{tag.weight|floatformat:0}}><a href="/posts/tag/{{tag}}" target=_blank title="({{tag.num_times}})">{{tag}}</a></font>
+{% endfor %}
+</div>
+        </div>
       </div></div></div>
 {% endblock content %}
