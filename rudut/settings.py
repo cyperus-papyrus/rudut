@@ -26,7 +26,7 @@ SECRET_KEY = 'acyt)crpsd#m!@*t8jcv5=#mchgydm3%um=7xp*5his@n$x*t8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['123.olgavr.ru',]
 
 
 # Application definition
@@ -88,9 +88,9 @@ WSGI_APPLICATION = 'rudut.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rudut',
-        'USER': 'admin',
-        'PASSWORD': 'qazwsx',
+        'NAME': 'marc',
+        'USER': 'marc',
+        'PASSWORD': '123',
         'HOST': '127.0.0.1'
     }
 }
@@ -138,10 +138,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
 
-DISQUS_API_KEY = 'nonono'
+DISQUS_API_KEY = 's8s5xX8CMY3krL1OpK8WmU0An4InDIYFZtP3Lak2iRgwK24tnwOVahwYlVuKRwCR'
 DISQUS_WEBSITE_SHORTNAME = 'rudut'
 
-SITE_ID = 1
+SITE_ID = 2
 
 
 LOGGING = {
