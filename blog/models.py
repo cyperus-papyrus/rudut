@@ -8,21 +8,19 @@ from taggit.managers import TaggableManager
 import logging
 logger = logging.getLogger(__name__)
 
-logger.debug("some message")
-logger.warning("oops, it is a warning")
-logger.error("bad, very bad")
-
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
     text = RichTextUploadingField(blank=True, default='')
-    created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
+    created_date = models.DateTimeField(default=timezone.now)
+    published_date = models.DateTimeField(blank=True, null=True)
     image = models.ImageField(upload_to="blog/media/", default='/static/image/140.jpg')
     tags = TaggableManager()
+    meta_description = models.CharField(max_length=200)
+    category = models.CharField(max_length=200)
+    is_in_carousel = models.BooleanField(default=False)
+    url = models.CharField(max_length=200, unique=True, null=True, blank=True)
 
     def publish(self):
         self.published_date = timezone.now()

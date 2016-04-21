@@ -13,13 +13,18 @@ def post_list(request):
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
-def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
+def post_detail(request, url):
+    post = get_object_or_404(Post, url=url)
     return render(request, 'blog/post_detail.html', {'post': post})
 
 
 def tags(request, tag):
     posts = Post.objects.filter(tags__name__in=[tag])
+    return render(request, 'blog/tags.html', {'posts': posts})
+
+
+def categories(request, category):
+    posts = Post.objects.filter(category__name__in=[category])
     return render(request, 'blog/tags.html', {'posts': posts})
 
 
