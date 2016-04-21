@@ -38,7 +38,7 @@ except ImportError:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['123.olgavr.ru',]
+ALLOWED_HOSTS = ['123.olgavr.ru', ]
 
 # Application definition
 
@@ -224,4 +224,3 @@ LOGGING = {
 }
 
 EMAIL_USE_TLS = True
-
