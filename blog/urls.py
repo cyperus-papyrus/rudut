@@ -7,7 +7,7 @@ from rudut import settings
 
 urlpatterns = [
     url(r'^$', views.post_list, name='post_list'),
-    url(r'^post/(?P<pk>[0-9]+)/$', views.post_detail, name='post_detail'),
+    url(r'^post/(?P<url>[\w+-_]+)/$', views.post_detail, name='post_detail'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^posts/tag/(?P<tag>\w+)/$', views.tags, name='tags'),
     url(r'^contact/', views.contact, name='contact'),

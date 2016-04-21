@@ -19,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 try:
     from production_settings import SECRET_KEY, database_name, database_user, \
         database_password, DISQUS_API_KEY, DISQUS_WEBSITE_SHORTNAME, EMAIL_HOST, \
-        EMAIL_HOST_PASSWORD, EMAIL_HOST_USER
+        EMAIL_HOST_PASSWORD, EMAIL_HOST_USER, SITE_ID
 except ImportError:
     # SECURITY WARNING: keep the secret key used in production secret!
     SECRET_KEY = 'acyt)crpsd#m!@*t8jcv5=#mchgydm3%um=7xp*5his@n$x*t8'
@@ -31,6 +31,7 @@ except ImportError:
     EMAIL_HOST = 'smtp.yandex.ru'  # Например, smtp.gmail.com
     EMAIL_HOST_USER = 'nonono@yandex.ru'
     EMAIL_HOST_PASSWORD = 'nonono'
+    SITE_ID = 2
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -144,8 +145,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CKEDITOR_UPLOAD_PATH = 'uploads/'
-
-SITE_ID = 2
 
 LOGGING = {
     'version': 1,

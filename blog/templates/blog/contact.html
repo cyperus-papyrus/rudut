@@ -1,6 +1,8 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 
+{% block head %}<title>Мамин сайт | уииии</title>{% endblock %}
+
 {% block content %}
 <div class="container">
 <div class="row">
@@ -20,7 +22,8 @@
 	  {{ form.sender }}
 	</div>
 	<div>
-	  <label for="id_message">Сообщение:</label>
+	  <label for="id<head>
+</head>_message">Сообщение:</label>
 	  {{ form.message.errors }}
 	  {{ form.message }}
 	</div>
