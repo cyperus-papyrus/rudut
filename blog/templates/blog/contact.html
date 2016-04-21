@@ -8,6 +8,7 @@
 <div class="row">
   <div class="col-sm-8 blog-main">
     <div class="blog-post">          <br /><br /><br />
+		<h2>Воспользуйтесь формой, чтобы связаться с нами!</h2>
 <form action="/contact/" method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}
@@ -22,8 +23,7 @@
 	  {{ form.sender }}
 	</div>
 	<div>
-	  <label for="id<head>
-</head>_message">Сообщение:</label>
+	  <label for="id_message">Сообщение:</label>
 	  {{ form.message.errors }}
 	  {{ form.message }}
 	</div>

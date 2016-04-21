@@ -20,9 +20,9 @@
       {% for post in posts %}
         <div class="col-md-4">
         <img class="img-circle" src="{% static post.image.url %}" width="140px" height="140px" alt="Generic placeholder image">
-            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <h2><a href="{% url 'post_detail' url=post.url %}">{{ post.title }}</a></h2>
             <p>{{ post.text|safe|striptags|linebreaks|truncatewords:20 }}</p>
-            <p><a class="btn btn-default" href="{% url 'post_detail' pk=post.pk %}" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default" href="{% url 'post_detail' url=post.url %}" role="button">View details &raquo;</a></p>
             <p><span class="glyphicon glyphicon-calendar"></span> {{ post.published_date }}</p>
 
         </div>
