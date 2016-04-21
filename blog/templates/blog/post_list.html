@@ -43,8 +43,11 @@
 
         </div>
     {% endfor %}
-    <div>Теги:
-        {% load taggit_templatetags2_tags %}
+
+          <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <h4>Теги</h4>
+                      {% load taggit_templatetags2_tags %}
 {% if forvar %}
 {% get_tagcloud as tags for forvar %}
 {% else %}
@@ -55,6 +58,7 @@
 <font size={{tag.weight|floatformat:0}}><a href="/posts/tag/{{tag}}" target=_blank title="({{tag.num_times}})">{{tag}}</a></font>
 {% endfor %}
 </div>
-        </div>
+          </div>
+        </div><!-- /.blog-sidebar -->
       </div></div></div>
 {% endblock content %}
