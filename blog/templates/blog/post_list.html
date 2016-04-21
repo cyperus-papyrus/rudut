@@ -33,6 +33,7 @@
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
+          <div class="col-sm-8 blog-main">
       {% for post in posts %}
         <div class="col-md-4">
         <img class="img-thumbnail" src="{% static post.image.url %}" width="140px" height="140px" alt="Generic placeholder image">
@@ -61,5 +62,5 @@
 </div>
           </div>
         </div><!-- /.blog-sidebar -->
-      </div></div>
+      </div></div></div>
 {% endblock content %}
