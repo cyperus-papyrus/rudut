@@ -9,8 +9,9 @@ from .forms import ContactForm
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    print posts
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    car_posts = Post.objects.filter(is_in_carousel=True).filter(published_date__lte=timezone.now()
+                                                                ).order_by('published_date')
+    return render(request, 'blog/post_list.html', {'posts': posts, 'car_posts': car_posts})
 
 
 def post_detail(request, url):
