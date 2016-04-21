@@ -34,12 +34,12 @@ def contact(request):
             message += '\n\n' + u'email отправителя: ' + sender
             copy = form.cleaned_data['copy']
 
-            recipients = ['gavchenok@yandex.ru']
+            recipients = ['robot@rudut.ru']
             # Если пользователь захотел получить копию себе, добавляем его в список получателей
             if copy:
                 recipients.append(sender)
             try:
-                send_mail(subject, message, 'gavchenok@yandex.ru', recipients)
+                send_mail(subject, message, 'robot@rudut.ru', recipients)
             except BadHeaderError:  # Защита от уязвимости
                 return HttpResponse('Invalid header found')
             # Переходим на другую страницу, если сообщение отправлено
