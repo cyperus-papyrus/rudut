@@ -10,7 +10,7 @@
       <!-- Indicators -->
       <ol class="carousel-indicators">
           {% for post in car_posts %}
-        {% if post.id == 1 %}<li data-target="#myCarousel" data-slide-to="0" class="active"></li>{% else %}<li data-target="#myCarousel" data-slide-to="{{ post.id|add:'-1' }}"></li>{% endif %}
+        {% if post.id == post.id|last %}<li data-target="#myCarousel" data-slide-to="0" class="active"></li>{% else %}<li data-target="#myCarousel" data-slide-to="{{ post.id|add:'-1' }}"></li>{% endif %}
         {% endfor %}
       </ol>
       <div class="carousel-inner">
