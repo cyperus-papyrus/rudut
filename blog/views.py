@@ -24,12 +24,14 @@ def post_detail(request, url):
 
 def tags(request, tag):
     posts = Post.objects.filter(tags__name__in=[tag])
-    return render(request, 'blog/tags.html', {'posts': posts, 'tag': tag})
+    catg = Category.objects.all()
+    return render(request, 'blog/tags.html', {'posts': posts, 'tag': tag, 'categories': catg})
 
 
 def categories(request, category):
     posts = Post.objects.filter(category=category)
-    return render(request, 'blog/tags.html', {'posts': posts, 'tag': category})
+    catg = Category.objects.all()
+    return render(request, 'blog/tags.html', {'posts': posts, 'tag': category, 'categories': catg})
 
 
 def contact(request):

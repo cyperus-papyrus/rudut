@@ -10,13 +10,13 @@
       <!-- Indicators -->
       <ol class="carousel-indicators">
           {% for post in car_posts %}
-        {% if post.id == post.id|last %}<li data-target="#myCarousel" data-slide-to="0" class="active"></li>{% else %}<li data-target="#myCarousel" data-slide-to="{{ post.id|add:'-1' }}"></li>{% endif %}
+        {% if not forloop.first %}<li data-target="#myCarousel" data-slide-to="{{ forloop.counter0 }}"></li>{% else %}<li data-target="#myCarousel" data-slide-to="0" class="active"></li>{% endif%}
         {% endfor %}
       </ol>
       <div class="carousel-inner">
             {% for post in car_posts %}
-        {% if post.id == post.id|last %}<div class="item active"> {% else %}<div class="item">{% endif %}
-          <img src="{% static 'post.image_background' %}" height="400px">
+        {% if not forloop.first %}<div class="item">{% else %}<div class="item active">{% endif%}
+          <img src="{% static post.image_background %}" height="400px">
           <div class="container">
             <div class="carousel-caption">
               <h1> {{ post.title }}</h1>
