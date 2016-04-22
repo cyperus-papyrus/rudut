@@ -12,7 +12,7 @@
     <div class="blog-post"> <br /><br /><br />
       <h2 class="blog-post-title">{{ post.title }}</h2>
       {% if post.published_date %}
-      <p class="blog-post-meta">{{ post.published_date }}</p>
+      <p class="blog-post-meta"> <span class="glyphicon glyphicon-calendar"></span> {{ post.published_date }}</p>
       {% endif %}
       {{ post.text|safe }}
       {% if post.tags %}<p>Tags:
@@ -21,13 +21,6 @@
         {% if not forloop.last %},{% endif%}
         {% endfor %}
       </p>{% endif %}
-      {% if post.tags.similar_objects %}
-    Similar:
-    {% for s in post.tags.similar_objects|slice:":3" %}
-      <a href='{% url "post_detail" s.url %}'>{{s}}</a>
-    {% if not forloop.last %},{% endif%}
-    {% endfor %}
-  {% endif %}
     </div><!-- /.blog-post -->
     <div>{% load disqus_tags %}
          {% disqus_show_comments %}

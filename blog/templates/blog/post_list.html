@@ -47,22 +47,39 @@
         </div>
     {% endfor %}
           </div>
-
           <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
-            <h4>Теги: </h4>
+            <div class="row"> <h2>Теги: </h2>
 {% load taggit_templatetags2_tags %}
 {% if forvar %}
 {% get_tagcloud as tags for forvar %}
 {% else %}
 {% get_tagcloud as tags %}
 {% endif %}
-<div>
+<div class="well">
 {% for tag in tags %}
 <font size={{tag.weight|floatformat:0}}><a href="/posts/tag/{{tag}}" target=_blank title="({{tag.num_times}})">{{tag}}</a></font>{% if not forloop.last %}, {% endif%}
 {% endfor %}
-</div>
+</div></div>
+              <div class="row"><h2>Рубрики: </h2>
+              <div class="well">{% for post in posts %} {{post.category}}{% if not forloop.last %}, {% endif%} {% endfor %}</div></div>
           </div>
         </div><!-- /.blog-sidebar -->
-      </div></div></div>
+      </div>
+    <div class="row">
+        <div class="col-sm-8 blog-main" align="center">
+    <span class="pager">
+        {% if posts.has_previous %}
+            <a href="?page={{ posts.previous_page_number }}" class="btn btn-default" role="button">&laquo; previous</a>
+        {% endif %}
+
+        <span class="current">
+             Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}" class="btn btn-default" role="button">next &raquo;</a>
+        {% endif %}
+    </span>
+</div></div></div></div>
 {% endblock content %}
