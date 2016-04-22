@@ -8,28 +8,38 @@
 <div class="row">
   <div class="col-sm-8 blog-main">
     <div class="blog-post">
-        {% load taggit_templatetags2_tags %}
-        {% get_taglist as tags %}
-        <ul>
-{% for tag in tags %}
-<li>{{tag}} ({{tag.num_times}})</li>
-{% endfor %}
-</ul>
-
-<div class="row">
+        <h2>Все посты по тегу {{ tag }}:</h2>
       {% for post in posts %}
-        <div class="col-md-4">
-        <img class="img-circle" src="{% static post.image.url %}" width="140px" height="140px" alt="Generic placeholder image">
-            <h2><a href="{% url 'post_detail' url=post.url %}">{{ post.title }}</a></h2>
+        <div class="row">
+        <div class="col-md-3">
+        <img class="img-thumbnail" src="{% static post.image.url %}" width="140px" height="140px" alt="Generic placeholder image"></div>
+            <div class="col-md-8"><h2><a href="{% url 'post_detail' url=post.url %}">{{ post.title }}</a></h2>
             <p>{{ post.text|safe|striptags|linebreaks|truncatewords:20 }}</p>
             <p><a class="btn btn-default" href="{% url 'post_detail' url=post.url %}" role="button">View details &raquo;</a></p>
             <p><span class="glyphicon glyphicon-calendar"></span> {{ post.published_date }}</p>
-
-        </div>
+        </div></div> <hr>
     {% endfor %}
-      </div>
     </div><!-- /.blog-post -->
   </div>
+
+              <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+          <div class="sidebar-module sidebar-module-inset">
+            <div class="row"> <h2>Теги: </h2>
+{% load taggit_templatetags2_tags %}
+{% if forvar %}
+{% get_tagcloud as tags for forvar %}
+{% else %}
+{% get_tagcloud as tags %}
+{% endif %}
+<div class="well">
+{% for tag in tags %}
+<font size={{tag.weight|floatformat:0}}><a href="/posts/tag/{{tag}}" target=_blank title="({{tag.num_times}})">{{tag}}</a></font>{% if not forloop.last %}, {% endif%}
+{% endfor %}
+</div></div>
+              <div class="row"><h2>Рубрики: </h2>
+              <div class="well"><ul>{% for c in categories %} <font size=5><li><a href="/category/{{c.id}}">{{c.category}}</a>{% if not forloop.last %}, </li>{% else %}.</li>{% endif%}</font>{% endfor %}</ul></div></div>
+          </div></div>
+
 </div>
 </div>
 {% endblock content %}

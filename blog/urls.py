@@ -10,5 +10,6 @@ urlpatterns = [
     url(r'^post/(?P<url>[\w+-_]+)/$', views.post_detail, name='post_detail'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^posts/tag/(?P<tag>\w+)/$', views.tags, name='tags'),
+    url(r'^category/(?P<category>[0-9]+)/$', views.categories, name='categories'),
     url(r'^contact/', views.contact, name='contact'),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -7,32 +7,32 @@
 <div class="container">
 <div class="row">
   <div class="col-sm-8 blog-main">
-    <div class="blog-post">          <br /><br /><br />
+    <div class="blog-post">
 		<h2>Воспользуйтесь формой, чтобы связаться с нами!</h2>
 <form action="/contact/" method="post">
     {% csrf_token %}
     {{ form.non_field_errors }}
 	<div>
 	  <label for="id_subject">Тема:</label>
-	  {{ form.subject.errors }}
+	  <span style="color: red;">{{ form.subject.errors }}</span>
 	  {{ form.subject }}
 	</div>
 	<div>
 	  <label for="id_sender">E-mail:</label>
-	  {{ form.sender.errors }}
+	  <span style="color: red;">{{ form.sender.errors }}</span>
 	  {{ form.sender }}
 	</div>
 	<div>
 	  <label for="id_message">Сообщение:</label>
-	  {{ form.message.errors }}
+	  <span style="color: red;">{{ form.message.errors }}</span>
 	  {{ form.message }}
 	</div>
 	<div>
-	  {{ form.copy.errors }}
+	  <span style="color: red;">{{ form.copy.errors }}</span>
 	  <label for="id_copy">Отправить копию себе {{ form.copy }}</label>
 	</div>
 	<input type="submit" value="Отправить"/>
-</form>
+</form><span style="color: red;">
     </div><!-- /.blog-post -->
   </div>
 </div>

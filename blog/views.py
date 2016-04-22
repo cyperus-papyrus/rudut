@@ -1,29 +1,20 @@
 # coding=utf-8
 from django.utils import timezone
-from .models import Post
-from django.shortcuts import render, get_object_or_404, render_to_response
+from .models import Post, Category
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def post_list(request):
-    our_posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    paginator = Paginator(our_posts, 3)
+    posts = Post.objects.filter(is_on_mainpage=True).filter(published_date__lte=timezone.now()
+                                                            ).order_by('published_date')
     car_posts = Post.objects.filter(is_in_carousel=True).filter(published_date__lte=timezone.now()
-                                                                ).order_by('published_date')
-    page = request.GET.get('page')
-    try:
-        posts = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        posts = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        posts = paginator.page(paginator.num_pages)
-        categ = [p.category for p in our_posts]
-    return render_to_response('blog/post_list.html', {'posts': posts, 'car_posts': car_posts})
+                                                            ).order_by('published_date')
+    categories = Category.objects.all()
+    return render(request, 'blog/post_list.html', {'posts': posts, 'car_posts': car_posts,
+                                                   'categories': categories})
 
 
 def post_detail(request, url):
@@ -33,12 +24,12 @@ def post_detail(request, url):
 
 def tags(request, tag):
     posts = Post.objects.filter(tags__name__in=[tag])
-    return render(request, 'blog/tags.html', {'posts': posts})
+    return render(request, 'blog/tags.html', {'posts': posts, 'tag': tag})
 
 
 def categories(request, category):
-    posts = Post.objects.filter(category__name__in=[category])
-    return render(request, 'blog/tags.html', {'posts': posts})
+    posts = Post.objects.filter(category=category)
+    return render(request, 'blog/tags.html', {'posts': posts, 'tag': category})
 
 
 def contact(request):
