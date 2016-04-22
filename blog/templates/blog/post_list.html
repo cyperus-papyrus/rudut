@@ -16,7 +16,7 @@
       <div class="carousel-inner">
             {% for post in car_posts %}
         {% if post.id == 1 %}<div class="item active"> {% else %}<div class="item">{% endif %}
-          <img src="{% static '{{ post.image_background }}' %}" height="400px">
+          <img src="{% static {{ post.image_background }} %}" height="400px">
           <div class="container">
             <div class="carousel-caption">
               <h1> {{ post.title }}</h1>
