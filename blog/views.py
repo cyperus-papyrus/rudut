@@ -47,6 +47,7 @@ def contact(request):
             subject = form.cleaned_data['subject']
             sender = form.cleaned_data['sender']
             message = form.cleaned_data['message']
+            message_to_user = message
             message += '\n\n' + u'email отправителя: ' + sender
             copy = form.cleaned_data['copy']
 
@@ -55,7 +56,8 @@ def contact(request):
             if copy:
                 recipients.append(sender)
             try:
-                send_mail(subject, message, 'robot@rudut.ru', recipients)
+                send_mail(subject, message, 'robot@rudut.ru', recipients[0])
+                send_mail(subject, message, 'robot@rudut.ru', recipients[1:])
             except BadHeaderError:  # Защита от уязвимости
                 return HttpResponse('Invalid header found')
             # Переходим на другую страницу, если сообщение отправлено
