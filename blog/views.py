@@ -5,6 +5,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 from django.core.mail import send_mail, BadHeaderError
 from .forms import ContactForm
+from ipware.ip import get_real_ip
 
 
 def post_list(request):
@@ -48,7 +49,8 @@ def contact(request):
             sender = form.cleaned_data['sender']
             message = form.cleaned_data['message']
             message_to_user = message
-            message += '\n\n' + u'email отправителя: ' + sender
+            client_address = get_real_ip(request)
+            message += '\n\n' + u'email отправителя: ' + sender + '\n' + u'ip отправителя: ' + client_address
             copy = form.cleaned_data['copy']
 
             recipient = ['robot@rudut.ru']
