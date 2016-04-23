@@ -51,13 +51,14 @@ def contact(request):
             message += '\n\n' + u'email отправителя: ' + sender
             copy = form.cleaned_data['copy']
 
-            recipients = ['robot@rudut.ru']
+            recipient = ['robot@rudut.ru']
+            u_recipient = []
             # Если пользователь захотел получить копию себе, добавляем его в список получателей
             if copy:
-                recipients.append(sender)
+                u_recipient.append(sender)
             try:
-                send_mail(subject, message, 'robot@rudut.ru', list(recipients[0]))
-                send_mail(subject, message, 'robot@rudut.ru', recipients[1:])
+                send_mail(subject, message, 'robot@rudut.ru', recipient)
+                send_mail(subject, message_to_user, 'robot@rudut.ru', u_recipient)
             except BadHeaderError:  # Защита от уязвимости
                 return HttpResponse('Invalid header found')
             # Переходим на другую страницу, если сообщение отправлено
