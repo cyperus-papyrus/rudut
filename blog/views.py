@@ -56,7 +56,7 @@ def contact(request):
             if copy:
                 recipients.append(sender)
             try:
-                send_mail(subject, message, 'robot@rudut.ru', recipients[0])
+                send_mail(subject, message, 'robot@rudut.ru', list(recipients[0]))
                 send_mail(subject, message, 'robot@rudut.ru', recipients[1:])
             except BadHeaderError:  # Защита от уязвимости
                 return HttpResponse('Invalid header found')
