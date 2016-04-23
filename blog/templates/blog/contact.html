@@ -1,7 +1,8 @@
 {% extends 'blog/base.html' %}
 {% load staticfiles %}
 
-{% block head %}<title>Мамин сайт | уииии</title>{% endblock %}
+{% block head %}<title>Мамин сайт | уииии</title>
+<script src='https://www.google.com/recaptcha/api.js'></script>{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -31,6 +32,8 @@
 	  <span style="color: red;">{{ form.copy.errors }}</span>
 	  <label for="id_copy">Отправить копию себе {{ form.copy }}</label>
 	</div>
+	<!--<div class="g-recaptcha" data-sitekey="6LcCJB4TAAAAAHN1n6wulTaFZ7GtxSzclnYdJih_"></div>-->
+	<div>{{ form.captcha }}</div>
 	<input type="submit" value="Отправить"/>
 </form><span style="color: red;">
     </div><!-- /.blog-post -->

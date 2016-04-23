@@ -25,13 +25,18 @@ def post_detail(request, url):
 def tags(request, tag):
     posts = Post.objects.filter(tags__name__in=[tag])
     catg = Category.objects.all()
-    return render(request, 'blog/tags.html', {'posts': posts, 'tag': tag, 'categories': catg})
+    what = u'по тегу'
+    return render(request, 'blog/tags.html', {'posts': posts, 'tag': tag, 'categories': catg,
+                                              'what': what})
 
 
 def categories(request, category):
     posts = Post.objects.filter(category=category)
+    name = Category.objects.filter(id=category)
     catg = Category.objects.all()
-    return render(request, 'blog/tags.html', {'posts': posts, 'tag': category, 'categories': catg})
+    what = u'из рубрики'
+    return render(request, 'blog/category.html', {'posts': posts, 'tag': name, 'categories': catg,
+                                              'what': what})
 
 
 def contact(request):

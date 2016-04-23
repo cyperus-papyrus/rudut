@@ -15,8 +15,8 @@
       </ol>
       <div class="carousel-inner">
             {% for post in car_posts %}
-        {% if not forloop.first %}<div class="item">{% else %}<div class="item active">{% endif%}
-          <img src="{% static post.image_background %}" height="400px">
+        {% if not forloop.first %}<div class="item" style="background: url({% static post.image_background %}) no-repeat center center;">{% else %}<div class="item active" style="background: url({% static post.image_background %}) no-repeat center center;">{% endif%}
+          <!--<img src="{% static post.image_background %}" height="400px">-->
           <div class="container">
             <div class="carousel-caption">
               <h1> {{ post.title }}</h1>

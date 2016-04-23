@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django import forms
+from captcha.fields import ReCaptchaField
 
 
 class ContactForm(forms.Form):
@@ -9,3 +10,4 @@ class ContactForm(forms.Form):
     sender = forms.EmailField(widget=forms.TextInput(attrs={'size': '40', 'class': 'form-control'}))
     message = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}))
     copy = forms.BooleanField(required=False)
+    captcha = ReCaptchaField()
