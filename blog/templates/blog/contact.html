@@ -33,6 +33,7 @@
 	  <label for="id_copy">Отправить копию себе {{ form.copy }}</label>
 	</div>
 	<!--<div class="g-recaptcha" data-sitekey="6LcCJB4TAAAAAHN1n6wulTaFZ7GtxSzclnYdJih_"></div>-->
+	<span style="color: red;">{{ form.captcha.errors }}</span>
 	<div>{{ form.captcha }}</div>
 	<input type="submit" value="Отправить"/>
 </form><span style="color: red;">
