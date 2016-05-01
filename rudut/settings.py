@@ -210,11 +210,11 @@ LOGGING = {
         'django': {
             'handlers': ['null', ],
         },
-        'django.db': {
-            'handlers': ['console'],
-            'level': 'DEBUG',  # <----<<<
-            'propagate': False,
-        },
+        # 'django.db': {
+        #     'handlers': ['console'],
+        #     'level': 'DEBUG',  # <----<<<
+        #     'propagate': False,
+        # },
         'py.warnings': {
             'handlers': ['null', ],
         },
