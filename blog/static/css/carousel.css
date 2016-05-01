@@ -99,6 +99,9 @@ body {
   letter-spacing: -1px;
 }
 
+.row {
+  max-width: 1200px;
+}
 
 
 /* RESPONSIVE CSS

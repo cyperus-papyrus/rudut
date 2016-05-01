@@ -27,11 +27,13 @@ class Post(models.Model):
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     image = models.ImageField(upload_to="blog/media/", default='/static/image/140.jpg')
+    image_500 = models.ImageField(upload_to="blog/media/", default='/static/image/140.jpg')
     tags = TaggableManager()
     meta_description = models.CharField(max_length=200)
     is_in_carousel = models.BooleanField(default=False)
     image_background = models.ImageField(upload_to="blog/media/", default='media/blog/media/forest.jpg')
     is_on_mainpage = models.BooleanField(default=False)
+    is_on_mainpage_500 = models.BooleanField(default=False)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     url = models.CharField(max_length=200, unique=True, null=True, blank=True)
 
