@@ -6,7 +6,7 @@ admin.site.register(Post)
 admin.site.register(Category)
 
 
-class Post(admin.ModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {
             'fields': ('author', 'title', 'text', ('created_date', 'published_date'),
