@@ -12,16 +12,8 @@ class PostAdmin(admin.ModelAdmin):
             'fields': ('author', 'title', 'text', ('created_date', 'published_date'),
                        'tags', 'meta_description', 'category', 'url')
         }),
-        (u'Карусель', {
-            'classes': ('collapse',),
-            'fields': ('is_in_carousel', 'image_background')
-        }),
         (u'Главная страница - картинки 140px', {
             'classes': ('collapse',),
             'fields': ('is_on_mainpage', 'image')
-        }),
-        (u'Главная страница - картинки 500px', {
-            'classes': ('collapse',),
-            'fields': ('is_on_mainpage_500', 'image_500')
         }),
     )
