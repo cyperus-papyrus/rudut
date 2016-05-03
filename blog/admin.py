@@ -2,26 +2,35 @@
 from django.contrib import admin
 from .models import Post, Category
 
-admin.site.register(Post)
-admin.site.register(Category)
-
 
 class PostAdmin(admin.ModelAdmin):
     fieldsets = (
-        (None, {
+        ('', {
             'fields': ('author', 'title', 'text', ('created_date', 'published_date'),
-                       'tags', 'meta_description', 'category', 'url')
+                       'tags', 'meta_description', 'category', 'url',)
         }),
-        (u'Карусель', {
-            'classes': ('collapse',),
-            'fields': ('is_in_carousel', 'image_background')
+        ('Carousel', {
+            'classes': ('grp-collapse grp-closed',),
+            'fields': ('is_in_carousel', 'image_background',)
         }),
-        (u'Главная страница - картинки 140px', {
-            'classes': ('collapse',),
-            'fields': ('is_on_mainpage', 'image')
+        ('Main page 140px', {
+            'classes': ('grp-collapse grp-closed',),
+            'fields': ('is_on_mainpage', 'image',)
         }),
-        (u'Главная страница - картинки 500px', {
-            'classes': ('collapse',),
-            'fields': ('is_on_mainpage_500', 'image_500')
+        ('Main page 500px', {
+            'classes': ('grp-collapse grp-closed',),
+            'fields': ('is_on_mainpage_500', 'image_500',)
         }),
     )
+
+
+class StackedItemInline(admin.StackedInline):
+    classes = ('grp-collapse grp-open',)
+
+
+class TabularItemInline(admin.TabularInline):
+    classes = ('grp-collapse grp-open',)
+
+
+admin.site.register(Post, PostAdmin)
+admin.site.register(Category)

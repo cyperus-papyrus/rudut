@@ -19,7 +19,8 @@ from django.conf.urls.static import static
 from rudut import settings
 
 urlpatterns = [
-    url(r'^admin-is-a-powerful-creature/', include(admin.site.urls)),
+    url(r'^grappelli/', include('grappelli.urls')),  # grappelli URLS
+    url(r'^admin-is-a-powerful-creature/', include(admin.site.urls)),  # admin site
     url(r'', include('blog.urls')),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     # url(r'', include('django.contrib.flatpages.urls')),
