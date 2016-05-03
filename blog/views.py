@@ -13,8 +13,10 @@ def post_list(request):
                                                             ).order_by('published_date')
     car_posts = Post.objects.filter(is_in_carousel=True).filter(published_date__lte=timezone.now()
                                                             ).order_by('published_date')
+    feat_posts = Post.objects.filter(is_on_mainpage_500=True).filter(published_date__lte=timezone.now()
+                                                            ).order_by('published_date')
     categories = Category.objects.all()
-    return render(request, 'blog/post_list.html', {'posts': posts, 'feat_post': posts, 'car_posts': car_posts,
+    return render(request, 'blog/post_list.html', {'posts': posts, 'feat_post': feat_posts, 'car_posts': car_posts,
                                                    'categories': categories})
 
 

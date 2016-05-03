@@ -131,7 +131,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -227,3 +227,4 @@ LOGGING = {
 }
 
 EMAIL_USE_TLS = True
+GRAPPELLI_ADMIN_TITLE = "RUDUT"
