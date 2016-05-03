@@ -172,7 +172,7 @@
       {% for post in feat_post %}
       {% if forloop.counter|divisibleby:"2" %}
         <div class="row featurette">
-        <div class="col-md-5">
+        <div class="col-md-6">
           <img class="featurette-image img-responsive" src="media/{{ post.image_500 }}" alt="500x500">
         </div>
         <div class="col-md-6">
@@ -185,7 +185,7 @@
           <h2 class="featurette-heading">{{ post.title }}</h2>
           <p class="lead">{{ post.text|safe|striptags|linebreaks|truncatewords:20 }}</p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-6">
           <img class="featurette-image img-responsive" src="media/{{ post.image_500 }}" alt="500x500">
         </div>
       </div> {% endif %} {% endfor %}
