@@ -46,6 +46,7 @@ ALLOWED_HOSTS = ['123.olgavr.ru', ]
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
