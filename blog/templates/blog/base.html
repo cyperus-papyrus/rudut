@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="">
     {% block head %}{% endblock %}
-    <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+    <link rel="shortcut icon" href="{% static 'image/favicon.ico' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -42,7 +42,7 @@
             <ul class="nav navbar-nav">
               <li class="active"><a href="/">Главная страница</a></li>
               <li><a href="/price">Услуги</a></li>
-              <li><a href="/contact">Связаться с мамой</a></li>
+              <li><a href="/contact">Ключи от моих дверей</a></li>
               <li class="dropdown">
                 <a href="/folio" class="dropdown-toggle">Портфолио <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -51,6 +51,7 @@
                 <li><a href="/folio/trk-teta-ru/">TRK-TETA</a></li>
                 </ul>
               </li>
+              <li><a href="/about-us">Почему RUDUT?</a></li>
             </ul>
         </div>
         </div></div><!--/.nav-collapse -->
