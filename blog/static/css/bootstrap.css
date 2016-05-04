@@ -1089,7 +1089,7 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #337ab7;
+  color: #9871aa;
   text-decoration: none;
 }
 a:hover,
@@ -1327,7 +1327,7 @@ mark,
   color: #777;
 }
 .text-primary {
-  color: #337ab7;
+  color: #9871aa;
 }
 a.text-primary:hover {
   color: #286090;
@@ -1358,7 +1358,7 @@ a.text-danger:hover {
 }
 .bg-primary {
   color: #fff;
-  background-color: #337ab7;
+  background-color: #9871aa;
 }
 a.bg-primary:hover {
   background-color: #286090;
@@ -3071,7 +3071,7 @@ fieldset[disabled] .btn-default.active {
 .btn-primary {
   color: #fff;
   background-color: #981aa;
-  border-color: #2e6da4;
+  border-color: #471135;
 }
 .btn-primary:hover,
 .btn-primary:focus,
@@ -3107,7 +3107,7 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
   background-color: #981aa;
-  border-color: #2e6da4;
+  border-color: #471135;
 }
 .btn-primary .badge {
   color: #981aa;
