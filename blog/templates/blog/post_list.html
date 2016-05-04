@@ -179,14 +179,16 @@
           <img class="featurette-image img-responsive" src="media/{{ post.image_500 }}" alt="500x500">
         </div>
         <div class="col-md-6">
-          <h2 class="featurette-heading"> {{ post.title }}</h2>
-          <p class="lead">{{ post.text|safe|striptags|linebreaks|truncatewords:50 }}</p></div>
+          <h2 class="featurette-heading"><a href="{% url 'post_detail' url=post.url %}">{{ post.title }}</a></h2>
+          <p class="lead">{{ post.text|safe|striptags|linebreaks|truncatewords:50 }}</p>
+        <p><a class="btn btn-default" href="{% url 'post_detail' url=post.url %}" role="button">Подробнее &raquo;</a></p></div>
       </div>
       {% else %}
         <div class="row featurette">
         <div class="col-md-6">
-          <h2 class="featurette-heading">{{ post.title }}</h2>
+          <h2 class="featurette-heading"><a href="{% url 'post_detail' url=post.url %}">{{ post.title }}</a></h2>
           <p class="lead">{{ post.text|safe|striptags|linebreaks|truncatewords:50 }}</p>
+            <p><a class="btn btn-default" href="{% url 'post_detail' url=post.url %}" role="button">Подробнее &raquo;</a></p>
         </div>
         <div class="col-md-6">
           <img class="featurette-image img-responsive" src="media/{{ post.image_500 }}" alt="500x500">
