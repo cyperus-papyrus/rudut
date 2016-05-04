@@ -98,7 +98,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1> {{ post.title }}</h1>
-              <p>{{ post.text|safe|striptags|linebreaks|truncatewords:20 }}</p>
+              <p>{{ post.text|safe|striptags|truncatewords:20 }}</p>
               <p><a class="btn btn-lg btn-primary" href="{% url 'post_detail' url=post.url %}" role="button">Подробнее &raquo;</a></p>
             </div>
         </div>

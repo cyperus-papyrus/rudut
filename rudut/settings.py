@@ -40,7 +40,7 @@ except ImportError:
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['123.olgavr.ru', ]
+ALLOWED_HOSTS = ['rudut.ru', ]
 
 # Application definition
 
