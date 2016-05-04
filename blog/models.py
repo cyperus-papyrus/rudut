@@ -38,7 +38,7 @@ class Post(models.Model):
                                   verbose_name=u'Превью 500px', help_text=u"Картинка-превью размером 500 px")
     tags = TaggableManager(help_text=u"Вводить метки (теги) можно через пробел, либо через \
                                        запятую, или отделяя кавычками")
-    meta_description = models.CharField(max_length=200, verbose_name=u'Мета-теги', help_text="По одному через запятую")
+    meta_description = models.CharField(max_length=200, verbose_name=u'Мета тег "description"')
     is_in_carousel = models.BooleanField(default=False, verbose_name=u'Добавить в карусель')
     image_background = models.ImageField(upload_to="blog/media/", default='media/blog/media/forest.jpg',
                                          verbose_name=u'Фон в карусели', help_text=u"Картинка высотой 500 px")
