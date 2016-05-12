@@ -98,7 +98,7 @@
           <!--<img src="{% static post.image_background %}" height="400px">-->
           <div class="container">
             <div class="carousel-caption">
-              <h1 style="text-shadow: black 0 0 5px; color: #fff;"><a href="{% url 'post_detail' url=post.url %}">{{ post.title }}</a></h1>
+              <h1 style="text-shadow: black 0 0 5px;"><a href="{% url 'post_detail' url=post.url %}" style="color: #fff;">{{ post.title }}</a></h1>
               <p style="text-shadow: black 0 0 5px;">{{ post.text|safe|striptags|truncatewords:5 }}</p>
               </div>
         </div>
