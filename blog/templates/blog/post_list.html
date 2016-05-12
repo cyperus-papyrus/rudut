@@ -102,7 +102,7 @@
               <p style="text-shadow: black 0 0 5px;">{{ post.text|safe|striptags|truncatewords:5 }}</p>
               </div>
         </div>
-       </div><a href="{% url 'post_detail' url=post.url %}">{{ post.title }}</a>
+       </div>
               {% endfor %}
       </div>
       <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
