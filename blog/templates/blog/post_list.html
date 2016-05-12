@@ -99,7 +99,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1 style="text-shadow: black 0 0 5px;"><a href="{% url 'post_detail' url=post.url %}" style="color: #fff;">{{ post.title }}</a></h1>
-              <p style="text-shadow: black 0 0 5px;">{{ post.text|safe|striptags|truncatewords:5 }}</p>
+              <p style="text-shadow: gray 1px 1px 0, gray -1px -1px 0, gray -1px 1px 0, gray 1px -1px 0;">{{ post.text|safe|striptags|truncatewords:5 }}</p>
               </div>
         </div>
        </div>
