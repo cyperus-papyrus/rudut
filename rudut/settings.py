@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'taggit',
     'taggit_templatetags2',
     'captcha',
+    'snowpenguin.django.recaptcha2',
 ]
 
 MIDDLEWARE_CLASSES = [
