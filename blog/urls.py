@@ -13,3 +13,7 @@ urlpatterns = [
     url(r'^category/(?P<category>[0-9]+)/$', views.categories, name='categories'),
     url(r'^contact/', views.contact, name='contact'),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+handler403 = 'blog.views.show_404'
+handler404 = 'blog.views.show_404'

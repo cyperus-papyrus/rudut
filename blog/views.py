@@ -8,6 +8,10 @@ from .forms import ContactForm
 from ipware.ip import get_real_ip
 
 
+def show_404(request):
+    return render(request, 'blog/404.html')
+
+
 def post_list(request):
     posts = Post.objects.filter(is_on_mainpage=True).filter(published_date__lte=timezone.now()
                                                             ).order_by('published_date')
